@@ -1,19 +1,32 @@
 const express = require('express');
+const authController = require('../controllers/auth');
+
 const router = express.Router();
 
-
-router.get("/", (reg, res)=> {
-    // res.send("<h1> Home Page </h1>")
-    res.render('index')
-});
-router.get("/register", (reg, res)=> {
-    // res.send("<h1> Home Page </h1>")
-    res.render('register')
-});
-router.get("/login", (reg, res)=> {
-    // res.send("<h1> Home Page </h1>")
-    res.render('login')
+router.get('/', authController.isLoggedIn, (req, res) => {
+  res.render('index', {
+    user: req.user
+  });
 });
 
-module.exports = router; 
+router.get('/register', (req, res) => {
+  res.render('register');
+});
 
+router.get('/login', (req, res) => {
+  res.render('login');
+});
+
+router.get('/profile', authController.isLoggedIn, (req, res) => {
+  console.log(req.user);
+  if( req.user ) {
+    res.render('profile', {
+      user: req.user
+    });
+  } else {
+    res.redirect('/login');
+  }
+  
+})
+
+module.exports = router;

@@ -1,5 +1,5 @@
 nav{
-    background-color: #563d7c;
+    background-color: green;
     color: #fff;
     padding: 30px 60px;
     display: flex;
@@ -25,4 +25,13 @@ nav li a {
 nav li a:hover {
     columns: yellow;
     text-decoration: none;
+}
+.avatar-ctn{
+    background-color: olive;
+    text-align: center;
+
+}
+.avatar{
+    width: 65%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0,0, 125) ;
 }
