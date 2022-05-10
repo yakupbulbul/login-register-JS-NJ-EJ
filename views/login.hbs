@@ -28,7 +28,8 @@
             </div>
             <div class="card-body">
                 <form action="/auth/login" method="POST">
-                   
+                 
+
 
                     <div class="form-group">
                         <label for="email">Email Address</label>
@@ -39,14 +40,21 @@
                         <label for="password">Password</label>
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
+
                    
+
+                    
                     <button type="submit" class="btn btn-primary">Login User</button>
                 </form>
 
             </div>
         </div>
+
+
         {{#if message }}
-        <h4 class="alert aler-danger mt-4"></h4>
+        <h4 class="alert alert-danger mt-4">
+            {{message}}
+        </h4>
         {{/if }}
 
     </div>

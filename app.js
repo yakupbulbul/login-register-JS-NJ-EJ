@@ -4,6 +4,7 @@ const mysql = require("mysql");
 
 const path = require('path');
 const dotenv = require('dotenv');
+const cookieParser = require('cookie-parser');
 
 dotenv.config()
 
@@ -25,6 +26,7 @@ app.use(express.static(publicDirectory));
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(cookieParser());
 
 
 
